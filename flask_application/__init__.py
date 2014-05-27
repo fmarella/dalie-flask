@@ -1,3 +1,17 @@
+# -*- coding: utf-8 -*-
+"""This file is part of the Daliegest project.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+"""
+__author__ = 'Francesco Marella <francesco.marella@anche.no>'
+__copyright__ = 'Copyright © 2014 Francesco Marella'
+
 import os
 
 
@@ -91,19 +105,19 @@ app.jinja_env.filters['datetimeformat'] = datetimeformat
 from flask_application.controllers.frontend import frontend
 app.register_blueprint(frontend)
 
-from flask.ext.security import Security, MongoEngineUserDatastore
+from flask.ext.security import Security, SQLAlchemyUserDatastore
 from flask_application.models import db, User, Role, Connection
 from flask_application.security_extras import ExtendedRegisterForm
 
 # Setup Flask-Security
-user_datastore = MongoEngineUserDatastore(db, User, Role)
+user_datastore = SQLAlchemyUserDatastore(db, User, Role)
 app.security = Security(app, user_datastore,
-         register_form=ExtendedRegisterForm)
+                        register_form=ExtendedRegisterForm)
 
 # Setup Flask-Social
 from flask.ext.social import Social
-from flask.ext.social.datastore import MongoEngineConnectionDatastore
-app.social = Social(app, MongoEngineConnectionDatastore(db, Connection))
+from flask.ext.social.datastore import SQLAlchemyConnectionDatastore
+app.social = Social(app, SQLAlchemyConnectionDatastore(db, Connection))
 
 from flask_application.controllers.admin import admin
 app.register_blueprint(admin)

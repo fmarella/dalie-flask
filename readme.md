@@ -1,3 +1,18 @@
+
+This is an experiment with Flask building a ERP for small and medium businesses for the Italian market.
+
+Software components:
+- Flask
+- AngularJS
+- SQLalchemy
+- sqlalchemy_utils
+- Bower
+- VirtualEnv
+
+For a complete list, see requirements.txt
+
+-----
+
 Flask Boilerplate Project
 =========================
 http://flask.pocoo.org/

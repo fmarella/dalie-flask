@@ -3,7 +3,7 @@ Flask-Assets==0.8
 Flask-Cache==0.12
 Flask-Login==0.2.6
 Flask-Mail==0.9.0
-Flask-MongoEngine==0.7.0
+Flask-sqlalchemy
 Flask-OAuth==0.12
 Flask-Principal==0.4.0
 Flask-Script==0.5.3
@@ -29,3 +29,5 @@ simplejson==3.3.0
 unittest2==0.5.1
 webassets==0.8
 wsgiref==0.1.2
+flask-restless
+mixer

@@ -1,15 +1,28 @@
+# -*- coding: utf-8 -*-
+"""This file is part of the Daliegest project.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+"""
+__author__ = 'Francesco Marella <francesco.marella@anche.no>'
+__copyright__ = 'Copyright © 2014 Francesco Marella'
+
 class Config(object):
     SECRET_KEY = '{SECRET_KEY}'
-    SITE_NAME = 'Flask Site'
+    SITE_NAME = 'DalieGest'
+    SUBTITLE = 'Software gestionale'
     SITE_ROOT_URL = 'http://example.com'
     MEMCACHED_SERVERS = ['localhost:11211']
     SYS_ADMINS = ['foo@example.com']
-    
-    # Mongodb support
-    MONGODB_DB = 'testing'
-    MONGODB_HOST = 'localhost'
-    MONGODB_PORT = 27017
 
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///testing.db'
+    #DB_HOST = 'localhost'
+    #DB_PORT = 27017
 
     # Configured for GMAIL
     MAIL_SERVER = 'smtp.gmail.com'
@@ -39,7 +52,7 @@ class ProductionConfig(Config):
     SECURITY_CONFIRMABLE = True
     SECURITY_LOGIN_WITHOUT_CONFIRMATION = False
     
-    MONGO_DB = 'production'
+    DB = 'production'
 
 class TestConfig(Config):
     SITE_ROOT_URL = 'http://localhost:5000'

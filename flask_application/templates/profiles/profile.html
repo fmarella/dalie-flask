@@ -19,6 +19,10 @@ Profile Management
 {% endblock %}
 
 {% block content %}
+<!--
 <h1>Manage your social accounts</h1>
 {{ show_provider_button('twitter', 'Twitter', twitter_conn) }}
+-->
+
+<h1>{{ current_user.username }}</h1>
 {% endblock %}
